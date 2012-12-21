@@ -1,4 +1,4 @@
 luminarium
 ==========
 
-The Luminarium
+The Luminarium V4 website front end
