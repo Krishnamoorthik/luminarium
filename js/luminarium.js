@@ -1,10 +1,9 @@
 $(function(){
     $.getJSON("http://api.theluminarium.net/exhibit/19",showExhibit);
+    $.getJSON("http://api.theluminarium.net/utils/background",setBackground);
 });
 
-function showExhibit(exhibit){    
-    randomBackground(exhibit.artwork,$('#top-content'));
-    
+function showExhibit(exhibit){        
     var container = $('#top-content .container').empty().addClass('bottom');
     $('<h2>').text(exhibit.title).appendTo(container);
     $('<p>').text(exhibit.description).appendTo(container).wrap($('<blockquote>'));
@@ -42,14 +41,13 @@ function getDescription(piece){
     return desc;    
 }
 
-function randomBackground(artwork, container){
-    while(true){
-        var rand = artwork[Math.floor(Math.random()*artwork.length)];
-        if (rand.type === "Image")
-            break;
-    }
-    
-    $('<img>').attr('src',rand.url).addClass('bg').appendTo(container).imagesLoaded(function(){
-        $(this).fadeIn(1000);
+function setBackground(img){
+    var container = $('#top-content');
+    var old_images = $('img',container);
+    $('<img>').attr('src',img.url).addClass('bg').appendTo(container).imagesLoaded(function(){
+        $(this).fadeIn(1000, function(){
+            // remove old BG from the DOM once the new one is loaded and displayed
+            old_images.remove();
+        });
     });
 }
