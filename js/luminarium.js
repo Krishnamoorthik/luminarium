@@ -78,7 +78,9 @@ function viewPiece(parent){
         
         container.imagesLoaded(function(){
             // after the new piece is loaded, show the container
-            container.slideDown(1000);
+            container.slideDown(1000, function(){
+                $('body').scrollTo(container, 400);
+            });
         });
         
     });

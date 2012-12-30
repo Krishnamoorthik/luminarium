@@ -126,4 +126,5 @@ div.gallery div#view-piece {
 
 div.gallery div#view-piece img {
     display: block;
+    margin: 0 auto;
 }
