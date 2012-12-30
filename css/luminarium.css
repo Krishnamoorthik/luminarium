@@ -118,3 +118,12 @@ div.gallery a.thumb div.thumb-desc {
     line-height:1em;
     margin:5px;
 }
+
+div.gallery div#view-piece {
+    display: none;
+    line-height: 27px;
+}
+
+div.gallery div#view-piece img {
+    display: block;
+}

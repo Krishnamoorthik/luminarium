@@ -14,9 +14,13 @@ function showExhibit(exhibit){
 function addGallery(artwork, parent){
     var gallery = $('<div class="gallery">');
     gallery.appendTo(parent);
+    $('<div id="view-piece">').appendTo(gallery);
     
     artwork.forEach(function(piece){
-        var thumb = $('<a class="thumb">').attr('href',piece.url);
+        var thumb = $('<a class="thumb">').attr({
+            href:'javascript:void(0)',
+            onclick:'viewPiece(this);'
+        }).data('piece',piece);
         
         $('<img>').attr('src',piece.thumbnail).appendTo(thumb);
         $('<div class="thumb-desc">').html(getDescription(piece)).appendTo(thumb).wrap('<div class="hover">');
@@ -31,14 +35,49 @@ function addGallery(artwork, parent){
     });
 }
 
-function getDescription(piece){
-    var desc = piece.name + "<br/>By: ";
+function getDescription(piece){ 
+    return piece.name + "<br/>By: " + getArtists(piece);    
+}
+
+function getArtists(piece){
+    var str = '';
     for(var i = 0; i < piece.artists.length; i++){
         if(i > 0)
-            desc += ", ";
-        desc += piece.artists[i].username;
+            str += ", ";
+        str += piece.artists[i].username;
     }
-    return desc;    
+    return str;  
+}
+
+function viewPiece(parent){
+    var piece = $(parent).data('piece');
+    var container = $(parent).closest('.gallery').children('#view-piece');
+    
+    // hide container if it is already showing
+    container.slideUp(1000, function(){
+        // once hidden, empty it and populate with the new piece
+        container.empty();
+        
+        var img = $('<img>').attr('src',piece.url);
+        img.appendTo(container).imagesLoaded(function(){
+            // after the new piece is loaded, show the container
+            container.slideDown(1000);
+        });
+        
+        $('<p>').text('Title: ' + piece.name).appendTo(container);
+        $('<p>').text('Description: ' + piece.description).appendTo(container);
+        $('<p>').text('By: ' + getArtists(piece)).appendTo(container);
+        
+        $('<a>').attr({
+            href:'javascript:void(0)',
+            onclick:'hidePiece(this);'
+        }).text('Back').appendTo(container).wrap($('<p>'));
+        
+    });
+}
+
+function hidePiece(parent){
+    $(parent).closest('.gallery').children('#view-piece').slideUp(1000);
 }
 
 function setBackground(img){
