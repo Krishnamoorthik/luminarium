@@ -58,11 +58,14 @@ function viewPiece(parent){
         // once hidden, empty it and populate with the new piece
         container.empty();
         
-        var img = $('<img>').attr('src',piece.url);
-        img.appendTo(container).imagesLoaded(function(){
-            // after the new piece is loaded, show the container
-            container.slideDown(1000);
-        });
+        if(piece.type === 'image') {
+            var img = $('<img>').attr('src',piece.url);
+            img.appendTo(container);
+        } else if(piece.type === 'music') {
+           $('<p>').text('Music piece... audio coming soon').appendTo(container); 
+        } else if(piece.type === 'video') {
+           $('<p>').text('Video piece... video coming soon').appendTo(container); 
+        }
         
         $('<p>').text('Title: ' + piece.name).appendTo(container);
         $('<p>').text('Description: ' + piece.description).appendTo(container);
@@ -72,6 +75,11 @@ function viewPiece(parent){
             href:'javascript:void(0)',
             onclick:'hidePiece(this);'
         }).text('Back').appendTo(container).wrap($('<p>'));
+        
+        container.imagesLoaded(function(){
+            // after the new piece is loaded, show the container
+            container.slideDown(1000);
+        });
         
     });
 }
