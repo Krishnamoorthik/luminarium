@@ -4,14 +4,14 @@ padding: 0;
 }
 
 #branding {
-  background: #000000 url('/v4/forum/public/style_images/master/v4/rp.jpg') repeat-x top left;
+  background: #000000 url('http://theluminarium.net/v4/forum/public/style_images/master/v4/rp.jpg') repeat-x top left;
 	min-height: 92px;
 }
 	
 	#logo { display: block; }
 
 #header_bottom {
-	background: #000000 url('/v4/forum/public/style_images/master/header_bottom.png') repeat-x top left;
+	background: #000000 url('http://theluminarium.net/v4/forum/public/style_images/master/header_bottom.png') repeat-x top left;
 	font-size: 13px;
 	padding: 0px 0 0 0;
 	height: 26px;
@@ -20,10 +20,8 @@ padding: 0;
 
 
 #mainlogo {
-background: url('v4/forum/public/style_images/master/mainlogo.png');
-float:left;
-margin:0px;
-padding:0px;
+position:absolute;
+z-index:1100;
 height:395px;
 width:575px;
 }
@@ -140,7 +138,7 @@ min-width:344px;
 }
 
 #primary_nav2 {
-	background: #000000 url('/v4/forum/public/style_images/master/2ndheader.png') no-repeat top center;
+	background: #000000 url('http://theluminarium.net/v4/forum/public/style_images/master/2ndheader.png') no-repeat top center;
 	font-size: 13px;
 	padding: 4px 0 0 0;
 	height: 500px;
@@ -190,7 +188,7 @@ min-width:344px;
 }
 
 #header_bar {
-	background: #000 url('/v4/forum/public/style_images/master/menu_box.png' ) no-repeat top right;
+	background: #000 url('http://theluminarium.net/v4/forum/public/style_images/master/menu_box.png' ) no-repeat top right;
 	padding: 0;min-width: 350px;
 	text-align: right;
 	margin-right: 0px;
