@@ -92,7 +92,7 @@ function hidePiece(parent){
 
 function setBackground(img){
     var container = $('#top-content');
-    var old_images = $('img',container);
+    var old_images = $('img.bg',container);
     $('<img>').attr('src',img.url).addClass('bg').appendTo(container).imagesLoaded(function(){
         $(this).fadeIn(1000, function(){
             // remove old BG from the DOM once the new one is loaded and displayed
