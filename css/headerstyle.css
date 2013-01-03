@@ -3,6 +3,8 @@ margin: 0;
 padding: 0;
 }
 
+
+
 #branding {
   background: #000000 url('http://theluminarium.net/v4/forum/public/style_images/master/v4/rp.jpg') repeat-x top left;
 	min-height: 92px;
@@ -87,6 +89,11 @@ width: 95px;
 .text_des_inner {
 width: 95px;
 height: 92px;
+}
+
+.right2 {
+float: left;
+padding-right: 10px;
 }
 
 #box_text {
