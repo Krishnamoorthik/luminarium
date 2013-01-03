@@ -196,7 +196,8 @@ min-width:344px;
 	max-width: 300px;
 	float: right;
 	display: inline;
-	
+	position: relative;
+    z-index: 1101;
 }
 
 .ipsUserPhoto_large {
