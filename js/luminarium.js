@@ -1,7 +1,62 @@
 $(function(){
-    $.getJSON("http://api.theluminarium.net/exhibit/19",showExhibit);
+    $.getJSON("http://api.theluminarium.net/exhibit/latest",updateHeader);
+    $.getJSON("http://api.theluminarium.net/me",buildProfile);
     $.getJSON("http://api.theluminarium.net/utils/background",setBackground);
 });
+
+function updateHeader(exhibit){
+    $('#exhibit-title').empty().text("Latest Exhibit: " + exhibit.title);
+    $('#exhibit-release-date').empty().text("Exhibit released: " + prettyDate(exhibit.release_date));
+    $('#exhibit-description').empty().text(exhibit.description);
+    
+    // now let's view this exhibit in the gallery
+    $.getJSON(exhibit.url,showExhibit);
+}
+
+function buildProfile(user){
+    var container = $('#corner_profile').empty();
+    if(user.is_logged_in){
+        // display user's profile
+        var profile_link = 'http://theluminarium.net/v4/forum/index.php?showuser=' + user.id;
+        var signout_link = 'http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k=' + user.k;
+        $('<li class="left_img">').append(
+            $('<a>').attr('href',profile_link).append(
+                $('<img>').attr('src',user.thumbnail)
+            )
+        ).appendTo(container);
+        $('<li>').append(
+            $('<a>').attr('href',profile_link).text(user.name)
+        ).appendTo(container);
+        $('<li>').append(
+            $('<a>').attr('href',signout_link).text("Sign Out")
+        ).appendTo(container);
+        
+        if(user.is_admin) {
+            $('<ul class="ipsList_inline right" id="admin_bar">').append(
+                $('<li>').append(
+                    $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/admin').text("Admin CP")
+                )
+            ).append(
+                $('<li>').append(
+                    $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&amp;module=modcp').text("Moderator CP")
+                )
+            ).appendTo(container);
+        }
+    } else {
+        // display login box
+        $('<li class="left_img">').append(
+            $('<a>').attr('href',profile_link).append(
+                $('<img>').attr('src',user.thumbnail)
+            )
+        ).appendTo(container);
+        $('<li>').append(
+            $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login').text('Sign In')
+        ).appendTo(container);
+        $('<li>').append(
+            $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=register').text("Create Account")
+        ).appendTo(container);
+    }
+}
 
 function showExhibit(exhibit){        
     var container = $('#top-content .container').empty().addClass('bottom');
@@ -99,4 +154,30 @@ function setBackground(img){
             old_images.remove();
         });
     });
+}
+
+function prettyDate(date_str){
+    var result = "";
+    var date_parts = date_str.split('-');
+    
+    if (date_parts.length != 3)
+        return "Unknown";
+        
+    switch(parseInt(date_parts[1])){
+        case 0: result = "January"; break;
+        case 1: result = "February"; break;
+        case 2: result = "March"; break;
+        case 3: result = "April"; break;
+        case 4: result = "May"; break;
+        case 5: result = "June"; break;
+        case 6: result = "July"; break;
+        case 7: result = "August"; break;
+        case 8: result = "September"; break;
+        case 9: result = "October"; break;
+        case 10: result = "November"; break;
+        case 11: result = "December"; break;
+        default: return "Unknown";
+    }
+    
+    return result + " " + date_parts[2] + ", " + date_parts[0];
 }
