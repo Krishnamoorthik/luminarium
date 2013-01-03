@@ -1,7 +1,7 @@
 $(function(){
-    $.getJSON("http://api.theluminarium.net/exhibit/latest",updateHeader);
-    $.getJSON("http://api.theluminarium.net/me",buildProfile);
-    $.getJSON("http://api.theluminarium.net/utils/background",setBackground);
+    get("http://api.theluminarium.net/exhibit/latest",updateHeader);
+    get("http://api.theluminarium.net/me",buildProfile);
+    get("http://api.theluminarium.net/utils/background",setBackground);
 });
 
 function updateHeader(exhibit){
@@ -10,7 +10,7 @@ function updateHeader(exhibit){
     $('#exhibit-description').empty().text(exhibit.description);
     
     // now let's view this exhibit in the gallery
-    $.getJSON(exhibit.url,showExhibit);
+    get(exhibit.url,showExhibit);
 }
 
 function buildProfile(user){
@@ -180,4 +180,13 @@ function prettyDate(date_str){
     }
     
     return result + " " + date_parts[2] + ", " + date_parts[0];
+}
+
+function get(url, callback){
+    $.ajax({
+        url: url,
+        xhrFields: {
+          withCredentials: true
+        }
+    },callback);
 }
