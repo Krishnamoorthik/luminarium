@@ -183,10 +183,5 @@ function prettyDate(date_str){
 }
 
 function get(url, callback){
-    $.ajax({
-        url: url,
-        xhrFields: {
-          withCredentials: true
-        }
-    },callback);
+    $.getJSON(url + "?callback=?",callback);
 }
