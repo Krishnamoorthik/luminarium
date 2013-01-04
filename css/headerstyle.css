@@ -243,3 +243,7 @@ ul#corner_profile img {
 #admin_bar li.active a { color: #fc6d35; }
 #admin_bar a { color: #8a8a8a; }
 #admin_bar a:hover { color: #fff; }
+
+div#inline_login_form, div#inline_login_form .modal-footer {
+    background: black;
+}

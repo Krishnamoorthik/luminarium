@@ -37,7 +37,67 @@
 			</div>
 		</div>
 	</div>	
-</div>		
+</div>
+
+
+<div id='inline_login_form' class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form action="http://theluminarium.net/v4/forum/index.php?app=core&amp;module=global&amp;section=login&amp;do=process" method="post" id='login' class="form-horizontal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel">Sign In</h3>
+        </div>
+        <div class="modal-body">
+            <input type='hidden' name='auth_key' value='880ea6a14ea49e853634fbdc5015a024' />
+            <input type="hidden" name="referer" value="" />
+            <div class="control-group">
+                <div class="controls">
+                     Need an account? <a href="http://theluminarium.net/v4/forum/index.php?app=core&amp;module=global&amp;section=register" title='Register now!'>Register now!</a>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ips_username">Username</label>
+                <div class="controls">
+                    <input id='ips_username' type='text' name='ips_username' size='30' tabindex='1' placeholder='Username' />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ips_password">Password</label>
+                <div class="controls">
+                    <input id='ips_password' type='password' name='ips_password' size='30' tabindex='2' placeholder='Password' /><br />
+                    <a href='http://theluminarium.net/v4/forum/index.php?app=core&amp;module=global&amp;section=lostpass' title='Retrieve password' placeholder='password'>I've forgotten my password</a>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type='checkbox' id='inline_remember' checked='checked' name='rememberMe' value='1' class='input_check' />
+                    <div class='ipsField_content'>
+                        <label for='inline_remember'>
+                            <strong>Remember me</strong><br />
+                            <span class='desc lighter'>This is not recommended for shared computers</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type='checkbox' id='inline_invisible' name='anonymous' value='1' class='input_check' />
+                    <div class='ipsField_content'>
+                        <label for='inline_invisible'>
+                            <strong>Sign in anonymously</strong><br />
+                            <span class='desc lighter'>Don't add me to the active users list</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">Sign In</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </form>
+</div>
+
+	
 	<!-- ::: APPLICATION TABS ::: -->
 <div id='top-content' class='clearfix'>
 	<div id="exhibit-title" class='raleway-font'></div>

@@ -18,7 +18,7 @@ function buildProfile(user){
     if(user.is_logged_in){
         // display user's profile
         var profile_link = 'http://theluminarium.net/v4/forum/index.php?showuser=' + user.id;
-        var signout_link = 'http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k=' + user.k;
+        var signout_link = 'http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k=' + user.k + '&return=' + window.location.href;
         $('<li class="left_img">').append(
             $('<a>').attr('href',profile_link).append(
                 $('<img>').attr('src',user.thumbnail)
@@ -50,11 +50,29 @@ function buildProfile(user){
             )
         ).appendTo(container);
         $('<li>').append(
-            $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login').text('Sign In')
+            $('<a id="signin_link" class="register_link2">')
+                .attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login')
+                .text('Sign In')
         ).appendTo(container);
         $('<li>').append(
-            $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=register').text("Create Account")
+            $('<a class="register_link2">')
+                .attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=register')
+                .text("Create Account")
         ).appendTo(container);
+        
+        // wire up sign in link to click event
+        $('#signin_link').click(function(e){
+            e.preventDefault();
+            
+            // set referrer on login form
+            $('#login input[name=referer]').val(window.location.href);
+            
+            // show login form
+            $('#inline_login_form').modal().on('shown',function(){
+                // select username field to make it easier for user
+                $('#ips_username').focus();
+            });
+        });
     }
 }
 
