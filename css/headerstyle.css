@@ -165,12 +165,28 @@ min-width:344px;
 	margin-bottom: 0px;
 }
 
-#user_navigation { color: #9f9f9f; font-size: 11px; }
+#user_navigation ul#corner_profile { 
+    color: #9f9f9f; 
+    margin: 0;
+    padding: 0;
+    width:100%;
+}
 #user_navigation a { color: #fff; }
-#user_navigation .ipsList_inline li { margin: 0;display: inline;} /* remove spacing from default ipsList_inline */
+
+#user_navigation li {
+    display: inline-block;
+}
+
+#corner_profile > li:last-of-type {
+    margin-right: 20px;
+}
 
 #user_navigation.not_logged_in {
 	height: 26px; padding: 6px 0 4px;
+}
+
+#user_navigation li.left_img {
+    float:left;
 }
 
 #branding, #header_bar, #primary_nav { min-width: 350px; }
@@ -218,20 +234,9 @@ max-width: 92px;
 max-height: 92px;
 }
 
-.ipsList_inline > li {
-	display: inline-block;
-	margin: 0 3px;
-}
-	.ipsList_inline > li:first-child { margin-left: 0; }
-	.ipsList_inline > li:last-child { margin-right: 0; }
-	.ipsList_inline.ipsList_reset > li:first-child { margin-left: 3px; }
-	.ipsList_inline.ipsList_reset > li:last-child { margin-right: 3px; }
-	.ipsList_inline.ipsList_nowrap { white-space: nowrap; }
-
 .width_right {
   max-width: 350px;
   height: 92px;
-  
 }
 
 ul#corner_profile img {

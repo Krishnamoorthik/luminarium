@@ -25,10 +25,10 @@ function buildProfile(user){
             )
         ).appendTo(container);
         $('<li>').append(
-            $('<a>').attr('href',profile_link).text(user.name)
+            $('<a class="register_link2">').attr('href',profile_link).text(user.name)
         ).appendTo(container);
         $('<li>').append(
-            $('<a>').attr('href',signout_link).text("Sign Out")
+            $('<a class="register_link2">').attr('href',signout_link).text("Sign Out")
         ).appendTo(container);
         
         if(user.is_admin) {
