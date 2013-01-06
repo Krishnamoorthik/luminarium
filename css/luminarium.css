@@ -72,6 +72,8 @@ div#top-content h2 {
 
 .modal {
     z-index:1150; /* to make it display over the main logo with a z-index of 1100 */
+    overflow-y:auto;
+    max-height:90%;
 }
 
 div#top-content div.container {
