@@ -109,7 +109,7 @@ function addGallery(artwork, parent){
 }
 
 function getDescription(piece){ 
-    return piece.name + "<br/>By: " + getArtists(piece);    
+    return piece.title + "<br/>By: " + getArtists(piece);    
 }
 
 function getArtists(piece){
@@ -140,7 +140,7 @@ function viewPiece(parent){
            $('<p>').text('Video piece... video coming soon').appendTo(container); 
         }
         
-        $('<p>').text('Title: ' + piece.name).appendTo(container);
+        $('<p>').text('Title: ' + piece.title).appendTo(container);
         $('<p>').text('Description: ' + piece.description).appendTo(container);
         $('<p>').text('By: ' + getArtists(piece)).appendTo(container);
         
