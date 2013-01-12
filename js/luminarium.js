@@ -38,7 +38,7 @@ function addGallery(artwork, parent){
 
             thumb.jackBox('newItem', {
                 group: 'artwork',
-                title: piece.title,
+                title: piece.title + " | " + getArtists(piece),
                 description: '#' + uid,
                 href: piece.url
             });
@@ -54,9 +54,8 @@ function getHover(piece){
 }
 
 function getDescription(piece){ 
-    return "<h3>" + piece.title + "</h3><p>" + piece.description + "</p>";    
+    return "<h3>" + piece.title + " | " + getArtists(piece) + "</h3><p>" + piece.description + "</p>";    
 }
-
 
 function getArtists(piece){
     var str = '';
