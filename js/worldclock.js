@@ -372,4 +372,3 @@ function worldClockZone(){
     */
     setTimeout("worldClockZone()", 1000);
 }
-window.onload=worldClockZone;
