@@ -43,8 +43,10 @@ function addGallery(artwork, parent){
                 href: piece.url
             });
         });
+        
+        // now if someone navigated here through a deep-link, trigger the jackbox for that piece
+        $.address.update();
     });
-
 }
 
 function getHover(piece){ 
