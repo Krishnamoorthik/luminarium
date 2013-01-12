@@ -26,6 +26,6 @@ $result = shell_exec('cd $loc && git pull');
 // log results to file to later viewing and debugging
 $filename = '/home/warlord/logs/github_pull.log';
 $fd = fopen($filename, 'a');
-fwrite($fd, $result . '\n');
+fwrite($fd, $result . "\n");
 fclose($fd);
 ?>
