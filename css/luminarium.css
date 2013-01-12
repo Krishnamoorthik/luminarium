@@ -116,38 +116,6 @@ div.gallery a.thumb {
 div.gallery a.thumb img {
     width: 100%;
     height: 100%;
-    position: absolute;
     left: 0px;
     top: 0px;
-}
-
-div.gallery a.thumb div.hover {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: none;
-    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
-    background: rgba(0, 0, 0, .5);
-}
-
-div.gallery a.thumb div.thumb-desc {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: #FFFFFF;
-    font-size:.8em;
-    line-height:1em;
-    margin:5px;
-}
-
-div.gallery #view-piece {
-    display: none;
-    line-height: 27px;
-}
-
-div.gallery #view-piece img {
-    display: block;
-    margin: 0 auto;
 }

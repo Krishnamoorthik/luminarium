@@ -1,4 +1,6 @@
 $(function(){
+    $(".jackbox[data-group]").jackBox("init");
+    
     get("http://api.theluminarium.net/exhibit/latest",updateHeader);
     get("http://api.theluminarium.net/me",buildProfile);
     get("http://api.theluminarium.net/utils/background",setBackground);
@@ -11,6 +13,109 @@ function updateHeader(exhibit){
     
     // now let's view this exhibit in the gallery
     get(exhibit.url,showExhibit);
+}
+
+function showExhibit(exhibit){        
+    var container = $('#top-content .container').empty().addClass('bottom');
+    $('<h2>').text(exhibit.title).appendTo(container);
+    $('<p>').text(exhibit.description).appendTo(container).wrap($('<blockquote>'));
+
+    addGallery(exhibit.artwork,$('#exhibit'));
+}
+
+function addGallery(artwork, parent){
+    var gallery = $('<div class="gallery">');
+    gallery.appendTo(parent);
+    
+    $.jackBox.available(function(){
+        artwork.forEach(function(piece){
+            var thumb = $('<a class="thumb jackbox">').appendTo(gallery);
+            var uid = UID();
+            
+            $('<div class="jackbox-hover jackbox-hover-black jackbox-hover-play">').html(getHover(piece)).appendTo(thumb);
+            $('<img>').attr('src',piece.thumbnail).appendTo(thumb);
+            $('<div class="jackbox-description">').attr('id',uid).html(getDescription(piece)).appendTo(thumb);
+
+            thumb.jackBox('newItem', {
+                group: 'artwork',
+                title: piece.title,
+                description: '#' + uid,
+                href: piece.url
+            });
+        });
+    });
+
+}
+
+function getHover(piece){ 
+    return "<p>" + piece.title + "</p><p>By: " + getArtists(piece) + "</p>";    
+}
+
+function getDescription(piece){ 
+    return "<h3>" + piece.title + "</h3><p>" + piece.description + "</p>";    
+}
+
+
+function getArtists(piece){
+    var str = '';
+    for(var i = 0; i < piece.artists.length; i++){
+        if(i > 0)
+            str += ", ";
+        str += piece.artists[i].username;
+    }
+    return str;  
+}
+
+function viewPiece(parent){
+    var piece = $(parent).data('piece');
+    var container = $(parent).closest('.gallery').children('#view-piece');
+    
+    // hide container if it is already showing
+    container.slideUp(1000, function(){
+        // once hidden, empty it and populate with the new piece
+        container.empty();
+        
+        if(piece.type === 'image') {
+            var img = $('<img>').attr('src',piece.url);
+            img.appendTo(container);
+        } else if(piece.type === 'music') {
+           $('<p>').text('Music piece... audio coming soon').appendTo(container); 
+        } else if(piece.type === 'video') {
+           $('<p>').text('Video piece... video coming soon').appendTo(container); 
+        }
+        
+        $('<p>').text('Title: ' + piece.title).appendTo(container);
+        $('<p>').text('Description: ' + piece.description).appendTo(container);
+        $('<p>').text('By: ' + getArtists(piece)).appendTo(container);
+        
+        $('<a>').attr({
+            href:'javascript:void(0)',
+            onclick:'hidePiece(this);'
+        }).text('Back').appendTo(container).wrap($('<p>'));
+        
+        container.imagesLoaded(function(){
+            // after the new piece is loaded, show the container
+            container.slideDown(1000, function(){
+                $('body').scrollTo(container, 400);
+            });
+        });
+        
+    });
+}
+
+function hidePiece(parent){
+    $(parent).closest('.gallery').children('#view-piece').slideUp(1000);
+}
+
+function setBackground(img){
+    var container = $('#top-content');
+    var old_images = $('img.bg',container);
+    $('<img>').attr('src',img.url).addClass('bg').appendTo(container).imagesLoaded(function(){
+        $(this).fadeIn(1000, function(){
+            // remove old BG from the DOM once the new one is loaded and displayed
+            old_images.remove();
+        });
+    });
 }
 
 function buildProfile(user){
@@ -76,104 +181,6 @@ function buildProfile(user){
     }
 }
 
-function showExhibit(exhibit){        
-    var container = $('#top-content .container').empty().addClass('bottom');
-    $('<h2>').text(exhibit.title).appendTo(container);
-    $('<p>').text(exhibit.description).appendTo(container).wrap($('<blockquote>'));
-
-    addGallery(exhibit.artwork,$('#exhibit'));
-}
-
-function addGallery(artwork, parent){
-    var gallery = $('<div class="gallery">');
-    gallery.appendTo(parent);
-    $('<div id="view-piece">').appendTo(gallery);
-    
-    artwork.forEach(function(piece){
-        var thumb = $('<a class="thumb">').attr({
-            href:'javascript:void(0)',
-            onclick:'viewPiece(this);'
-        }).data('piece',piece);
-        
-        $('<img>').attr('src',piece.thumbnail).appendTo(thumb);
-        $('<div class="thumb-desc">').html(getDescription(piece)).appendTo(thumb).wrap('<div class="hover">');
-        
-        thumb.hover(function(){
-            $('div.hover',$(this)).fadeIn(200);
-        },function(){
-            $('div.hover',$(this)).fadeOut(200);
-        });
-        
-        thumb.appendTo(gallery);
-    });
-}
-
-function getDescription(piece){ 
-    return piece.title + "<br/>By: " + getArtists(piece);    
-}
-
-function getArtists(piece){
-    var str = '';
-    for(var i = 0; i < piece.artists.length; i++){
-        if(i > 0)
-            str += ", ";
-        str += piece.artists[i].username;
-    }
-    return str;  
-}
-
-function viewPiece(parent){
-    var piece = $(parent).data('piece');
-    var container = $(parent).closest('.gallery').children('#view-piece');
-    
-    // hide container if it is already showing
-    container.slideUp(1000, function(){
-        // once hidden, empty it and populate with the new piece
-        container.empty();
-        
-        if(piece.type === 'image') {
-            var img = $('<img>').attr('src',piece.url);
-            img.appendTo(container);
-        } else if(piece.type === 'music') {
-           $('<p>').text('Music piece... audio coming soon').appendTo(container); 
-        } else if(piece.type === 'video') {
-           $('<p>').text('Video piece... video coming soon').appendTo(container); 
-        }
-        
-        $('<p>').text('Title: ' + piece.title).appendTo(container);
-        $('<p>').text('Description: ' + piece.description).appendTo(container);
-        $('<p>').text('By: ' + getArtists(piece)).appendTo(container);
-        
-        $('<a>').attr({
-            href:'javascript:void(0)',
-            onclick:'hidePiece(this);'
-        }).text('Back').appendTo(container).wrap($('<p>'));
-        
-        container.imagesLoaded(function(){
-            // after the new piece is loaded, show the container
-            container.slideDown(1000, function(){
-                $('body').scrollTo(container, 400);
-            });
-        });
-        
-    });
-}
-
-function hidePiece(parent){
-    $(parent).closest('.gallery').children('#view-piece').slideUp(1000);
-}
-
-function setBackground(img){
-    var container = $('#top-content');
-    var old_images = $('img.bg',container);
-    $('<img>').attr('src',img.url).addClass('bg').appendTo(container).imagesLoaded(function(){
-        $(this).fadeIn(1000, function(){
-            // remove old BG from the DOM once the new one is loaded and displayed
-            old_images.remove();
-        });
-    });
-}
-
 function prettyDate(date_str){
     var result = "";
     var date_parts = date_str.split('-');
@@ -198,6 +205,10 @@ function prettyDate(date_str){
     }
     
     return result + " " + date_parts[2] + ", " + date_parts[0];
+}
+
+function UID(){
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);});
 }
 
 function get(url, callback){
