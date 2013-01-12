@@ -40,7 +40,7 @@ div.navbar {
     margin-bottom: 0;
 }
 
-div#top-content {
+#top-content {
     width: 100%;
     height: 500px;
     top: 0;
@@ -51,12 +51,12 @@ div#top-content {
     background: url("../img/stone_bg.jpg") center no-repeat;
 }
 
-div#top-content div {
+#top-content div {
     z-index:2;
     position:relative;
 }
 
-div#top-content img.bg {
+#top-content img.bg {
     display: none;
     position: absolute;
     top: 0;
@@ -66,7 +66,7 @@ div#top-content img.bg {
     z-index: 1;
 }
 
-div#top-content h2 {
+#top-content h2 {
     text-shadow: #333 1px 2px;
 }
 
@@ -76,15 +76,27 @@ div#top-content h2 {
     max-height:90%;
 }
 
-div#top-content div.container {
+#top-content div.container {
     z-index: 2;
 }
 
-div#top-content div.container.bottom {
+#top-content div.container.bottom {
     bottom: 0;
     left: 0;
     right: 0;
     position: absolute;
+}
+
+#bottom-content {
+    background: black url('http://www.theluminarium.net/v4/img/footer_bg.jpg') no-repeat bottom center;
+}
+
+#bottom-content div.container {
+    padding-bottom: 400px;
+}
+
+#footer {
+    min-height: 200px;
 }
 
 div.gallery {
@@ -130,12 +142,12 @@ div.gallery a.thumb div.thumb-desc {
     margin:5px;
 }
 
-div.gallery div#view-piece {
+div.gallery #view-piece {
     display: none;
     line-height: 27px;
 }
 
-div.gallery div#view-piece img {
+div.gallery #view-piece img {
     display: block;
     margin: 0 auto;
 }
