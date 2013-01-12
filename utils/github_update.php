@@ -21,7 +21,7 @@ if (!isset($repository) || !isset($repository['name']))
 
 // perform the git pull
 $loc = '/home/warlord/www/v4';
-$result = shell_exec('cd $loc && git pull');
+$result = shell_exec('cd ' . $loc . ' && git pull');
 
 // log results to file to later viewing and debugging
 $filename = '/home/warlord/logs/github_pull.log';
