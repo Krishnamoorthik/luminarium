@@ -1,5 +1,5 @@
 $(function(){
-    $(".jackbox[data-group]").jackBox("init");
+    $(".jackbox[data-group]").jackBox("init", {preloadGraphics: false});
     
     get("http://api.theluminarium.net/exhibit/latest",updateHeader);
     get("http://api.theluminarium.net/me",buildProfile);
