@@ -20,11 +20,11 @@ if (!isset($repository) || !isset($repository['name']))
 	return;
 
 // perform the git pull
-$loc = '~/www/v4';
+$loc = '/home/warlord/www/v4';
 $result = shell_exec('cd $loc && git pull');
 
 // log results to file to later viewing and debugging
-$filename = '~/logs/github_pull.log';
+$filename = '/home/warlord/logs/github_pull.log';
 $fd = fopen($filename, 'a');
 fwrite($fd, $result . '\n');
 fclose($fd);
