@@ -286,10 +286,11 @@ function worldClock(zone, region){
         }
     }
     
-    var ending = "AM";
+    var ending = hr < 12 ? "AM" : "PM";
     if (hr > 12){
         hr -= 12;
-        ending = "PM";
+    } else if (hr === 0) {
+        hr = 12;
     }
     
     return hr + ":" + min + " " + ending;
