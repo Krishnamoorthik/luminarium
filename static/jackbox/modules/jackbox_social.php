@@ -24,14 +24,13 @@
 				print str_replace("{contentTitle}", $title, '<meta itemprop="name" content="{contentTitle}" />');
 				
 			}
-			/*
+			
 			if(isset($_GET["poster"])) {
 				
-				$poster = str_replace('http://www.','http://',$_GET["poster"]);
 				print str_replace("{imgPoster}", $poster, '<meta itemprop="image" content="{imgPoster}" />');
 				
 			}
-			*/
+			
 		?>
 		
         <style type="text/css">
@@ -211,13 +210,13 @@
 					$social = str_replace("{googleToShare}", $urls, $social);
 					
 				}
-                /*
+
 				if(isset($_GET["poster"])) {
 				
 					$social = str_replace("{imgPoster}", $_GET["poster"], $social);
 					
 				}
-				*/
+				
 				if(isset($_GET["title"])) {
 					
 					$social = str_replace("{contentTitle}", strip_tags(urldecode($_GET["title"])), $social);
