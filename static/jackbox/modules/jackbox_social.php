@@ -24,14 +24,14 @@
 				print str_replace("{contentTitle}", $title, '<meta itemprop="name" content="{contentTitle}" />');
 				
 			}
-			
+			/*
 			if(isset($_GET["poster"])) {
 				
 				$poster = str_replace('http://www.','http://',$_GET["poster"]);
 				print str_replace("{imgPoster}", $poster, '<meta itemprop="image" content="{imgPoster}" />');
 				
 			}
-			
+			*/
 		?>
 		
         <style type="text/css">
