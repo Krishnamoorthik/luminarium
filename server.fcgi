@@ -7,7 +7,7 @@ from bottle import get, run, static_file, view
 app = bottle.Bottle()
 
 @app.get('/')
-@app.view('index')
+@view('index')
 def hello():
     return {}
 
