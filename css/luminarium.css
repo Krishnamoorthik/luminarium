@@ -1,19 +1,36 @@
 body {
     position: relative;
     background-color: #000;
-    color: #CCC;
-    font: 18px/27px 'ColaborateThinRegular', Arial, sans-serif; 
+    color: #5A5A5A;
+    font: 13px helvetica, Arial, sans-serif; 
 }
 
 h2, h3 {
     color: #FFF;
-    font: 40px/48px 'ColaborateThinRegular', Arial, sans-serif;
+    font: 40px/48px 'Raleway', Arial, sans-serif;
     letter-spacing: 0;
 }
 
 h3 {
-    font: 36px/44px 'ColaborateThinRegular', Arial, sans-serif;
+    font: 36px/44px 'Raleway', Arial, sans-serif;
     text-transform: uppercase;
+}
+
+a, a:visited, a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #7BC1FF;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+ol.bullet, ul.bullet {
+    list-style: disc;
 }
 
 blockquote {
@@ -32,8 +49,11 @@ div.navbar-inverse a.brand {
 }
 
 span.bold {
-    font-family: 'ColaborateBoldRegular', Arial, sans-serif;
     font-weight: bold;
+}
+
+span.blue {
+    color: #71C8FF;
 }
 
 div.navbar {
@@ -47,7 +67,6 @@ div.navbar {
     left: 0;
     position: relative;
     overflow:hidden;
-    text-shadow: #333 1px 1px;
     background: url("../img/stone_bg.jpg") center no-repeat;
 }
 
@@ -89,6 +108,7 @@ div.navbar {
 
 #bottom-content {
     background: black url('http://www.theluminarium.net/v4/img/footer_bg.jpg') no-repeat bottom center;
+    margin-top: 2px;
 }
 
 #bottom-content div.container {
@@ -118,4 +138,57 @@ div.gallery a.thumb img {
     height: 100%;
     left: 0px;
     top: 0px;
+}
+
+div.footerbar {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    overflow: hidden;
+    background: black url('http://www.theluminarium.net/v4/img/stone_bg.jpg') no-repeat top center;
+}
+
+div.footerbar li {
+    line-height: inherit;
+}
+
+#footer-wrap {
+    width: 1110px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+div.footer-float {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+div.footer-float h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 27px;
+    line-height: 1.3;
+    color: white;
+}
+
+#footer-wrap > div.footer-float:last-of-type {
+    margin-right: 0;
+}
+
+div.timezone {
+    color: #777;
+    margin: 20px 0;
+}
+
+div.timezone a {
+    font-weight: bold;
+}
+
+#copyright {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
 }

@@ -1,4 +1,5 @@
 $(function(){
+    worldClockZone();
     $(".jackbox[data-group]").jackBox("init", {preloadGraphics: false, thumbsStartHidden: true});
     
     get("http://api.theluminarium.net/exhibit/latest",updateHeader);
