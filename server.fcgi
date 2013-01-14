@@ -7,9 +7,14 @@ from bottle import get, run, static_file, view
 app = bottle.Bottle()
 
 @app.get('/')
-@view('index')
+@view('home')
 def hello():
     return {}
+    
+@app.get('/exhibit/<id:int>')
+@view('exhibit')
+def exhibit(id):
+    return {'exhibit':id}
 
 if __name__ == '__main__':
     import sys
@@ -21,6 +26,6 @@ if __name__ == '__main__':
         # route static files for localhost testing
         @app.get('/<filepath:path>')
         def file(filepath):
-            return static_file(filepath, root='')
+            return static_file(filepath.replace('v4/','',1), root='')
             
         app.run()

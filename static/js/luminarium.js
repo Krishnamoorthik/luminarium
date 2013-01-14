@@ -2,18 +2,14 @@ $(function(){
     worldClockZone();
     $(".jackbox[data-group]").jackBox("init", {preloadGraphics: false, thumbsStartHidden: true});
     
-    get("http://api.theluminarium.net/exhibit/latest",updateHeader);
     get("http://api.theluminarium.net/me",buildProfile);
     get("http://api.theluminarium.net/utils/background",setBackground);
 });
 
 function updateHeader(exhibit){
-    $('#exhibit-title').empty().text("Latest Exhibit: " + exhibit.title);
+    $('#exhibit-title').empty().text("The Luminarium Presents: " + exhibit.title);
     $('#exhibit-release-date').empty().text("Exhibit released: " + prettyDate(exhibit.release_date));
     $('#exhibit-description').empty().text(exhibit.description);
-    
-    // now let's view this exhibit in the gallery
-    get(exhibit.url,showExhibit);
 }
 
 function showExhibit(exhibit){        

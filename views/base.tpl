@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Luminarium V4</title>
+    <title>{{get('title','The Luminarium V4')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,19 +11,19 @@
     <link href="http://fonts.googleapis.com/css?family=Raleway:100,800" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
     
-    <link href="static/css/bootstrap.css" rel="stylesheet">
-	<link href='static/css/headerstyle.css' rel='stylesheet' type='text/css'>
-    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/v4/static/css/bootstrap.css" rel="stylesheet">
+	<link href='/v4/static/css/headerstyle.css' rel='stylesheet' type='text/css'>
+    <link href="/v4/static/css/bootstrap-responsive.css" rel="stylesheet">
     
     <!--[if lt IE 9]>
-        <link href="jackbox/css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+        <link href="/v4/static/jackbox/css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <!--[if gt IE 8]><link href="jackbox/css/jackbox-ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
-    <link href="static/jackbox/css/jackbox.min.css" rel="stylesheet" type="text/css" />
+    <!--[if gt IE 8]><link href="/v4/static/jackbox/css/jackbox-ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="/v4/static/jackbox/css/jackbox.min.css" rel="stylesheet" type="text/css" />
  
-    <link href="static/css/luminarium.css" rel="stylesheet">
+    <link href="/v4/static/css/luminarium.css" rel="stylesheet">
   </head>
 
   <body>
@@ -122,32 +122,11 @@
 	<!-- #menu_head -->					
 		</div>
 	<div id='header_bottom' class='clearfix'></div>
-     <!--<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">The<span class="bold">Luminarium</span><span class="superscript"> V4</span></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>/.nav-collapse 
-        </div>
-      </div>
-    </div>
-
-    <div id="top-content">
-        <div class="container"></div>
-    </div>--> 
     <div id="bottom-content">
         <div class="container">
-            <div id="exhibit"></div>
+            %if defined('content'):
+                %content()
+            %end
         </div>
     </div>
     <div id='header_bottom' class='clearfix'></div>
@@ -223,13 +202,18 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="static/js/jquery.imagesloaded.min.js"></script>
-    <script type="text/javascript" src="static/js/jquery.animate-enhanced.min.js"></script>
-    <script type="text/javascript" src="static/js/jquery.scroll-to.min.js"></script>
-    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/jackbox/js/jackbox-packed.min.js"></script>
-    <script type="text/javascript" src="static/js/worldclock.js"></script>
-    <script type="text/javascript" src="static/js/luminarium.js"></script>
+    <script type="text/javascript" src="/v4/static/js/jquery.imagesloaded.min.js"></script>
+    <script type="text/javascript" src="/v4/static/js/jquery.animate-enhanced.min.js"></script>
+    <script type="text/javascript" src="/v4/static/js/jquery.scroll-to.min.js"></script>
+    <script type="text/javascript" src="/v4/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/v4/static/jackbox/js/jackbox-packed.min.js"></script>
+    <script type="text/javascript" src="/v4/static/js/worldclock.js"></script>
+    <script type="text/javascript" src="/v4/static/js/luminarium.js"></script>
+    
+    %if defined('custom_scripts'):
+        %custom_scripts()
+    %end
+    
   </body>
 </html>
 
