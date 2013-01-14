@@ -211,12 +211,13 @@
 					$social = str_replace("{googleToShare}", $urls, $social);
 					
 				}
+                /*
 				if(isset($_GET["poster"])) {
 				
 					$social = str_replace("{imgPoster}", $_GET["poster"], $social);
 					
 				}
-				
+				*/
 				if(isset($_GET["title"])) {
 					
 					$social = str_replace("{contentTitle}", strip_tags(urldecode($_GET["title"])), $social);
