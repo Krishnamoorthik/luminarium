@@ -25,9 +25,9 @@
 				
 			}
 			
-			if(isset($_GET["poster"])) {
+			if(isset($_GET["image"])) {
 				
-				$poster = $_GET["poster"];
+				$poster = $_GET["image"];
 				print str_replace("{imgPoster}", $poster, '<meta itemprop="image" content="{imgPoster}" />');
 				
 			}
@@ -212,9 +212,9 @@
 					
 				}
 
-				if(isset($_GET["poster"])) {
+				if(isset($_GET["image"])) {
 				
-					$social = str_replace("{imgPoster}", $_GET["poster"], $social);
+					$social = str_replace("{imgPoster}", $_GET["image"], $social);
 					
 				}
 				
