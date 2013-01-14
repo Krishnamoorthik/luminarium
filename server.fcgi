@@ -1,14 +1,15 @@
 #!/home/warlord/www/api/env2/bin/python
 
 import bottle
-from bottle import get, run, error, abort, static_file
+from bottle import get, run, static_file, view
 
 # setup application with plugins    
 app = bottle.Bottle()
 
 @app.get('/')
+@app.view('index')
 def hello():
-    return static_file('views/index.html', root='')
+    return {}
 
 if __name__ == '__main__':
     import sys
