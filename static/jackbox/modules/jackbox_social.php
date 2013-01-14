@@ -27,6 +27,7 @@
 			
 			if(isset($_GET["poster"])) {
 				
+				$poster = $_GET["poster"];
 				print str_replace("{imgPoster}", $poster, '<meta itemprop="image" content="{imgPoster}" />');
 				
 			}
