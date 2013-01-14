@@ -14,7 +14,7 @@
         function listExhibits(result){
             var list = $('#exhibit-list');
             result.exhibits.forEach(function(exhibit){
-                $('<a>').attr('href','/exhibit/' + exhibit.id).text(exhibit.title).appendTo(list).wrap('<li>');
+                $('<a>').attr('href','exhibit/' + exhibit.id).text(exhibit.title).appendTo(list).wrap('<li>');
             });
         }
     </script>
