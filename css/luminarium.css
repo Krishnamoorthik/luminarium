@@ -112,7 +112,8 @@ div.navbar {
 }
 
 #bottom-content div.container {
-    padding-bottom: 400px;
+    padding-bottom: 150px;
+    min-height: 250px;
 }
 
 #footer {
