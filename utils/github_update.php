@@ -28,4 +28,7 @@ $filename = '/home/warlord/logs/github_pull.log';
 $fd = fopen($filename, 'a');
 fwrite($fd, $result . "\n");
 fclose($fd);
+
+// restart the api server
+shell_exec("pkill -9 -u 'warlord' -f server.fcgi");
 ?>
