@@ -204,7 +204,7 @@
 					
 					$urls = $_GET["url"];
 					$social = str_replace("{twitterToShare}", $urls, $social);
-					$social = str_replace("{urlToShare}", urlencode($urls), $social);
+					$social = str_replace("{urlToShare}", $urls, $social);
 					$splits = explode("#/", $urls);
 						
 					if(count($splits) > 1) $urls = $splits[0] . "?url=" . $splits[1];
