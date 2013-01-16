@@ -3,12 +3,12 @@
     <div class='width_right'>					
         <div id='user_navigation'>
             <ul id='corner_profile' class='ipsList_inline right2'>
-                <li class="left_img">
-                    <a href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
-                        <img src="{{ user.thumbnail }}" />
-                    </a>
-                </li>
                 {% if user.is_logged_in %}
+                    <li class="left_img">
+                        <a href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
+                            <img src="{{ user.thumbnail }}" />
+                        </a>
+                    </li>
                     <li>
                         <a class="register_link2" href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
                             {{ user.name }}
@@ -32,6 +32,9 @@
                         </ul>
                     {% endif %}
                 {% else %}
+                    <li class="left_img">
+                        <img src="{{ user.thumbnail }}" />
+                    </li>
                     <li>
                         <a id="signin_link" class="register_link2" href="http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login">
                             Sign In
