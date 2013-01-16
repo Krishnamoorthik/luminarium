@@ -1,14 +1,14 @@
-%def content():
-    <div id="exhibit"></div>
-%end
+{% extends 'base.html' %}
 
-%def custom_scripts():
+{% block content %}
+    <div id="exhibit"></div>
+{% endblock %}
+
+{% block custom_js %}
     <script type="text/javascript">
         $(function(){
             get("http://api.theluminarium.net/exhibit/{{exhibit}}",updateHeader);
             get("http://api.theluminarium.net/exhibit/{{exhibit}}",showExhibit);
         });
     </script>
-%end
-
-%rebase base content=content, custom_scripts=custom_scripts, title='Exhibit ' + str(exhibit)
+{% endblock %}

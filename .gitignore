@@ -1,2 +1,15 @@
 # temporary files from gedit
 *~
+
+# deployment specific configuration file
+config.py
+
+# python executable files
+*.pyc
+
+# cgi specific deployment folders and files
+cgi-bin/
+env*/
+
+# apache htaccess file
+.htaccess

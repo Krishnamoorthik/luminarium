@@ -1,7 +1,8 @@
 #!/home/warlord/www/api/env2/bin/python
 
 import bottle
-from bottle import get, run, static_file, view
+from bottle import get
+from custom_view import view
 
 # setup application with plugins    
 app = bottle.Bottle()
@@ -22,7 +23,8 @@ if __name__ == '__main__':
         from flup.server.fcgi import WSGIServer
         WSGIServer(app).run()
     else: # debug mode (can be used with curl over ssh)
-    
+        from bottle import static_file
+        
         # route static files for localhost testing
         @app.get('/<filepath:path>')
         def file(filepath):

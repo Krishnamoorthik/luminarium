@@ -1,10 +1,12 @@
-%def content():
+{% extends 'base.html' %}
+
+{% block content %}
     <h2>Welcome to the new Luminarium V4!</h2>
     <p>View our exhibits:</p>
     <ul id="exhibit-list"></ul>
-%end
+{% endblock %}
 
-%def custom_scripts():
+{% block custom_js %}
     <script type="text/javascript">
         $(function(){
             get("http://api.theluminarium.net/exhibit/latest",updateHeader);
@@ -18,6 +20,4 @@
             });
         }
     </script>
-%end
-
-%rebase base content=content, custom_scripts=custom_scripts
+{% endblock %}

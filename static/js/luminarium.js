@@ -1,9 +1,7 @@
 $(function(){
     worldClockZone();
+    setupProfileLinks();
     $(".jackbox[data-group]").jackBox("init", {preloadGraphics: false, thumbsStartHidden: true});
-    
-    get("http://api.theluminarium.net/me",buildProfile);
-    get("http://api.theluminarium.net/utils/background",setBackground);
 });
 
 function updateHeader(exhibit){
@@ -116,67 +114,23 @@ function setBackground(img){
     });
 }
 
-function buildProfile(user){
-    var container = $('#corner_profile').empty();
-    if(user.is_logged_in){
-        // display user's profile
-        var profile_link = 'http://theluminarium.net/v4/forum/index.php?showuser=' + user.id;
-        var signout_link = 'http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k=' + user.k + '&return=' + window.location.href;
-        $('<li class="left_img">').append(
-            $('<a>').attr('href',profile_link).append(
-                $('<img>').attr('src',user.thumbnail)
-            )
-        ).appendTo(container);
-        $('<li>').append(
-            $('<a class="register_link2">').attr('href',profile_link).text(user.name)
-        ).appendTo(container);
-        $('<li>').append(
-            $('<a class="register_link2">').attr('href',signout_link).text("Sign Out")
-        ).appendTo(container);
+function setupProfileLinks(){
+    // Tell the forum's signout script to return to this page after signout
+    $('#signout-link').attr('href',$('#signout-link').attr('href') + '&return=' + window.location.href);
+    
+    // wire up sign in link to click event
+    $('#signin_link').click(function(e){
+        e.preventDefault();
         
-        if(user.is_admin) {
-            $('<ul class="ipsList_inline right" id="admin_bar">').append(
-                $('<li>').append(
-                    $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/admin').text("Admin CP")
-                )
-            ).append(
-                $('<li>').append(
-                    $('<a class="register_link2">').attr('href','http://theluminarium.net/v4/forum/index.php?app=core&amp;module=modcp').text("Moderator CP")
-                )
-            ).appendTo(container);
-        }
-    } else {
-        // display login box
-        $('<li class="left_img">').append(
-            $('<a>').attr('href',profile_link).append(
-                $('<img>').attr('src',user.thumbnail)
-            )
-        ).appendTo(container);
-        $('<li>').append(
-            $('<a id="signin_link" class="register_link2">')
-                .attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login')
-                .text('Sign In')
-        ).appendTo(container);
-        $('<li>').append(
-            $('<a class="register_link2">')
-                .attr('href','http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=register')
-                .text("Create Account")
-        ).appendTo(container);
+        // set referrer on login form
+        $('#login input[name=referer]').val(window.location.href);
         
-        // wire up sign in link to click event
-        $('#signin_link').click(function(e){
-            e.preventDefault();
-            
-            // set referrer on login form
-            $('#login input[name=referer]').val(window.location.href);
-            
-            // show login form
-            $('#inline_login_form').modal().on('shown',function(){
-                // select username field to make it easier for user
-                $('#ips_username').focus();
-            });
+        // show login form
+        $('#inline_login_form').modal().on('shown',function(){
+            // select username field to make it easier for user
+            $('#ips_username').focus();
         });
-    }
+    });
 }
 
 function prettyDate(date_str){
