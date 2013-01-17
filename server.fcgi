@@ -12,13 +12,13 @@ app = bottle.Bottle()
 @app.get('/')
 @view('home')
 def hello():
-    return {}
+    
+    return {'exhibits': LuminariumAPI().fetch_str('/exhibits')}
     
 @app.get('/exhibit/<id:int>')
 @view('exhibit')
 def exhibit(id):
-    api = LuminariumAPI()
-    return {'exhibit': api.fetch_str('/exhibit/' + str(id))}
+    return {'exhibit': LuminariumAPI().fetch_str('/exhibit/' + str(id))}
 
 if __name__ == '__main__':
     import sys

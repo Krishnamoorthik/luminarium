@@ -9,8 +9,10 @@
 {% block custom_js %}
     <script type="text/javascript">
         $(function(){
-            get("http://api.theluminarium.net/exhibit/latest",updateHeader);
-            get("http://api.theluminarium.net/exhibits",listExhibits);
+            var exhibits = {{ exhibits }};
+        
+            updateHeader(exhibits[0]);
+            listExhibits(exhibits);
         });
         
         function listExhibits(result){
