@@ -23,8 +23,10 @@ def view(tpl_name, **defaults):
             # them to the templates for rendering (The api is defined in server.fcgi
             # where this function is included)
             
-            result['user'] = bottle.request.app.config['api'].fetch('me')
-            result['background_image'] = bottle.request.app.config['api'].fetch('utils/background')
+            api = LuminariumAPI()
+            
+            result['user'] = api.fetch('me')
+            result['background_image'] = api.fetch('utils/background')
             
             # ---------------------------------------------------------------
             
