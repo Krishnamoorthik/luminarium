@@ -64,47 +64,6 @@ function getArtists(piece){
     return str;  
 }
 
-function viewPiece(parent){
-    var piece = $(parent).data('piece');
-    var container = $(parent).closest('.gallery').children('#view-piece');
-    
-    // hide container if it is already showing
-    container.slideUp(1000, function(){
-        // once hidden, empty it and populate with the new piece
-        container.empty();
-        
-        if(piece.type === 'image') {
-            var img = $('<img>').attr('src',piece.url);
-            img.appendTo(container);
-        } else if(piece.type === 'music') {
-           $('<p>').text('Music piece... audio coming soon').appendTo(container); 
-        } else if(piece.type === 'video') {
-           $('<p>').text('Video piece... video coming soon').appendTo(container); 
-        }
-        
-        $('<p>').text('Title: ' + piece.title).appendTo(container);
-        $('<p>').text('Description: ' + piece.description).appendTo(container);
-        $('<p>').text('By: ' + getArtists(piece)).appendTo(container);
-        
-        $('<a>').attr({
-            href:'javascript:void(0)',
-            onclick:'hidePiece(this);'
-        }).text('Back').appendTo(container).wrap($('<p>'));
-        
-        container.imagesLoaded(function(){
-            // after the new piece is loaded, show the container
-            container.slideDown(1000, function(){
-                $('body').scrollTo(container, 400);
-            });
-        });
-        
-    });
-}
-
-function hidePiece(parent){
-    $(parent).closest('.gallery').children('#view-piece').slideUp(1000);
-}
-
 function setBackground(img){
     var container = $('#top-content');
     var old_images = $('img.bg',container);
