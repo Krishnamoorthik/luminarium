@@ -1,8 +1,7 @@
-import urllib2, json, functools
+import functools
 import bottle
 from bottle import DictMixin, template
-
-API_BASE = 'http://api.theluminarium.net/'
+from api_handler import LuminariumAPI
 
 def view(tpl_name, **defaults):
     ''' Decorator: renders a template for a handler.
@@ -21,15 +20,11 @@ def view(tpl_name, **defaults):
             
             # ---------------------------------------------------------------
             # fetch user profile and background image from API for every page and pass
-            # them to the templates for rendering
+            # them to the templates for rendering (The api is defined in server.fcgi
+            # where this function is included)
             
-            opener = urllib2.build_opener()
-            opener.addheaders.append(('Cookie', bottle.request.environ.get('HTTP_COOKIE','')))
-            user = json.loads(opener.open(API_BASE + 'me').read())
-            background_image = json.loads(opener.open(API_BASE + 'utils/background').read())
-
-            result['user'] = user
-            result['background_image'] = background_image
+            result['user'] = bottle.request.app.config['api'].fetch('me')
+            result['background_image'] = bottle.request.app.config['api'].fetch('utils/background')
             
             # ---------------------------------------------------------------
             

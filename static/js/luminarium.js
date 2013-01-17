@@ -10,7 +10,9 @@ function updateHeader(exhibit){
     $('#exhibit-description').empty().text(exhibit.description);
 }
 
-function showExhibit(exhibit){        
+function showExhibit(exhibit){   
+    updateHeader(exhibit);
+     
     var container = $('#top-content .container').empty().addClass('bottom');
     $('<h2>').text(exhibit.title).appendTo(container);
     $('<p>').text(exhibit.description).appendTo(container).wrap($('<blockquote>'));

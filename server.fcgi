@@ -2,10 +2,15 @@
 
 import bottle
 from bottle import get
+from api_handler import LuminariumAPI
 from custom_view import view
+import json
 
 # setup application with plugins    
 app = bottle.Bottle()
+
+# define the API interface
+app.config['api'] = LuminariumAPI()
 
 @app.get('/')
 @view('home')
@@ -15,7 +20,7 @@ def hello():
 @app.get('/exhibit/<id:int>')
 @view('exhibit')
 def exhibit(id):
-    return {'exhibit':id}
+    return {'exhibit': json.dumps(app.config['api'].fetch('/exhibit/' + str(id)))}
 
 if __name__ == '__main__':
     import sys

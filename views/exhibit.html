@@ -7,8 +7,10 @@
 {% block custom_js %}
     <script type="text/javascript">
         $(function(){
-            get("http://api.theluminarium.net/exhibit/{{exhibit}}",updateHeader);
-            get("http://api.theluminarium.net/exhibit/{{exhibit}}",showExhibit);
+            var exhibit = {{ exhibit }};
+            
+            
+            showExhibit(exhibit);
         });
     </script>
 {% endblock %}
