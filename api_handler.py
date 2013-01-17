@@ -11,3 +11,6 @@ class LuminariumAPI(object):
         
     def fetch(self, url):
         return json.loads(self.opener.open(self.base + url).read())
+        
+    def fetch_str(self,url):
+        return self.opener.open(self.base + url).read()

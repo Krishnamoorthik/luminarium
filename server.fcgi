@@ -18,7 +18,7 @@ def hello():
 @view('exhibit')
 def exhibit(id):
     api = LuminariumAPI()
-    return {'exhibit': json.dumps(api.fetch('/exhibit/' + str(id)))}
+    return {'exhibit': api.fetch_str('/exhibit/' + str(id))}
 
 if __name__ == '__main__':
     import sys
