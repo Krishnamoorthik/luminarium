@@ -18,7 +18,8 @@ def hello():
 @app.get('/exhibit/<id:int>')
 @view('exhibit')
 def exhibit(id):
-    return {'exhibit': LuminariumAPI().fetch_str('/exhibit/' + str(id))}
+    return {'exhibit': LuminariumAPI().fetch_str('/exhibit/' + str(id)),
+            'id': id}
 
 if __name__ == '__main__':
     import sys
