@@ -41,7 +41,7 @@
 				margin: 0;
 				padding: 0;
 				overflow: hidden;
-				background-color: #FFF;
+				background-color: #000;
 				
 			}
 			
