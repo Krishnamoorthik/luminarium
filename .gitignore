@@ -13,3 +13,6 @@ env*/
 
 # apache htaccess file
 .htaccess
+
+#ignore thumbnails created by windows
+Thumbs.db
