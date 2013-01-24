@@ -1,9 +1,9 @@
 <?php
         	
-	$useTwitter = true;
-	$useGoogle = true;
-	$usePinterest = true;
-	$useFacebook = true;
+	$useTwitter = false;
+	$useGoogle = false;
+	$usePinterest = false;
+	$useFacebook = false;
 			
 ?>
 

@@ -12,7 +12,6 @@ app = bottle.Bottle()
 @app.get('/')
 @view('home')
 def hello():
-    
     return {'exhibits': LuminariumAPI().fetch_str('/exhibits')}
     
 @app.get('/exhibit/<id:int>')
