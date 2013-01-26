@@ -129,7 +129,7 @@ div.gallery a.thumb {
     height: 175px;
     margin: 0;
     padding: 0;
-    margin: 2px;
+    margin: 1px 1px 0px 0px;
     display: inline-block;
 }
 
