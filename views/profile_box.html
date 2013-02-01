@@ -2,8 +2,9 @@
 <div id='header_bar'>
     <div class='width_right'>					
         <div id='user_navigation'>
-            <ul id='corner_profile' class='ipsList_inline right2'>
+            
                 {% if user.is_logged_in %}
+                <ul id='corner_profile' class='ipsList_inline right2'>
                     <li class="left_img">
                         <a href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
                             <img src="{{ user.thumbnail }}" />
@@ -36,7 +37,10 @@
                             </li>
                         </ul>
                     {% endif %}-->
+                    
+                    </ul>
                 {% else %}
+                <ul id='corner_profile' class='ipsList_inline'>
                     <!--<li class="left_img">
                         <img src="{{ user.thumbnail }}" />
                     </li>-->
@@ -50,8 +54,9 @@
                             Create Account
                         </a>
                     </li>
+                </ul>
                 {% endif %}
-            </ul>
+            
         </div>
     </div>
 </div>	

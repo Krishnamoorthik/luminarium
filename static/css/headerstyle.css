@@ -176,8 +176,7 @@ font-weight: bold;
 }
 #user_navigation ul#corner_profile { 
     color: #9f9f9f; 
-    margin: 0;
-    padding: 0;
+    margin: 0px;
 }
 #user_navigation a { color: #fff; }
 
