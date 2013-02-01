@@ -235,21 +235,20 @@ font-weight: 800;
 }
 
 #header_bar {
-	background: #000 url('http://theluminarium.net/v4/forum/public/style_images/master/menu_box.png' ) no-repeat top right;
-	padding: 0;min-width: 350px;
-	text-align: right;
-	margin-right: 0px;
-	height: 92px;
-	max-width: 300px;
-	float: right;
-	display: inline;
-	position: relative;
-    z-index: 1101;
+background: black url(http://theluminarium.net/v4/forum/public/style_images/master/menu_box.png) repeat-y top right;
+padding: 0;
+min-width: 350px;
+text-align: right;
+margin-right: 0px;
+height: 67px;
+max-width: 300px;
+float: right;
+display: inline;
 }
 
 .ipsUserPhoto_large {
-max-width: 92px;
-max-height: 92px;
+max-width: 67px;
+max-height: 67px;
 }
 
 .t_username {
@@ -257,16 +256,14 @@ padding:13px;
 font-size: 43px
 }
 
-
-
 .width_right {
-  max-width: 350px;
-  height: 92px;
+max-width: 350px;
+height: 67px;
 }
 
 ul#corner_profile img {
-    width: 92px;
-    height: 92px;
+    width: 67px;
+    height: 67px;
 }
 	
 #admin_bar { font-size: 11px; line-height: 36px; }
