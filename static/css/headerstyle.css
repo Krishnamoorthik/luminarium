@@ -49,11 +49,12 @@ box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 0.2), 0px 1px 4px rgba(0, 0, 0, 
 }
 
 div#exhibit-title {
-	margin: 320px 0px 0px 129px;
-	font-size:27px;
-	color:#FFF;
-	padding:4px;
-	text-shadow: 0px 1px 2px rgba(0,0,0,90);
+margin-top: 34px;
+margin-left: 30%;
+font-size: 27px;
+color: white;
+padding: 4px 4px 4px 4px;
+text-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
 }
 
 div.whitebar {
@@ -283,4 +284,62 @@ ul#corner_profile img {
 
 div#inline_login_form, div#inline_login_form .modal-footer {
     background: black;
+}
+
+.news_title {
+background: rgba(0, 0, 0, 0.16);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#090909), color-stop(100%,rgba(22, 22, 22, 0.58)));
+background: -moz-linear-gradient(top, bottom, color-stop0%,#161616, color-stop(100%,#1F1F1F));
+background: -moz-linear-gradient( top, #161616, #1F1F1F);
+color: white;
+padding: 10px 10px 5px 10px;
+font-size: 12px;
+font-weight: 800;
+-moz-border-radius: 10px 10px 0 0;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+border-radius: 10px 10px 0 0;
+-webkit-box-shadow: inset 0px 1px 0 #242424;
+-moz-box-shadow: inset 0px 1px 0 #333;
+box-shadow: inset 0px 1px 0 #303030;
+}
+
+.news_des {
+background: rgba(12, 12, 12, 0.89) url('http://www.theluminarium.net/v4/forum/public/style_images/master/exhibit_logo.png') top left no-repeat;
+color: #777;
+padding: 15px 15px 15px 105px;
+font-size: 13px;
+font-weight: 300;
+height: 65px;
+border-bottom: 1px solid #222;
+-moz-border-radius: 0px 0px 0px 10px;
+-webkit-border-bottom-left-radius: 10px;
+-webkit-border-bottom-right-radius: 0px;
+border-radius: 0px 0px 0px 10px;
+}
+
+.news_img {
+padding: 0px 0px 0px 0px;
+display: table-cell;
+}
+
+.read_more {
+float: right;
+padding: 8px;
+background: black;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,black), color-stop(100%,#1B1B1B));
+background: -moz-linear-gradient(top, bottom, color-stop0%,#161616, color-stop(100%,#1F1F1F));
+background: -moz-linear-gradient( top, #161616, #1F1F1F);
+display: inline;
+-moz-border-radius: 0px 0px 5px 5px;
+-webkit-border-bottom-left-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+border-radius: 0px 0px 5px 5px;
+}
+
+.read_more a:hover {
+background: black;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,black), color-stop(100%,#001831));
+background: -moz-linear-gradient(top, bottom, color-stop0%,black, color-stop(100%,#001831));
+background: -moz-linear-gradient( top, black, #001831);
 }
