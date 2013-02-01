@@ -189,10 +189,10 @@ min-width:344px;
 #user_navigation.not_logged_in {
 	height: 26px; padding: 6px 0 4px;
 }
-
-#user_navigation li.left_img {
+.left_img { float: left; margin:0px; }
+/*#user_navigation li.left_img {
     float:left;
-}
+}*/
 
 #branding, #header_bar, #primary_nav { min-width: 350px; }
 /*#header_bar .main_width, #branding .main_width, #primary_nav .main_width { padding: 0 0px; }*/
