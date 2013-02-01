@@ -269,6 +269,13 @@ div#inline_login_form, div#inline_login_form .modal-footer {
     background: black;
 }
 
+#user_link_dd, .dropdownIndicator {
+display: inline-block;
+width: 10px;
+height: 10px;
+background: url(http://theluminarium.net/v4/forum/public/style_images/master/header_dropdown.png) no-repeat left;
+}
+
 .news_title {
 background: rgba(0, 0, 0, 0.16);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#090909), color-stop(100%,rgba(22, 22, 22, 0.58)));
