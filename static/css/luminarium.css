@@ -177,9 +177,10 @@ div.footer-float h2 {
     margin-right: 0;
 }
 
-div.timezone {
-    color: #777;
-    margin: 20px 0;
+.timezone {
+color: #777;
+margin: 20px 0;
+padding: 0px 105px;
 }
 
 div.timezone a {
