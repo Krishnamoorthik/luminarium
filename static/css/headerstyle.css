@@ -285,6 +285,7 @@ border-radius: 10px 10px 0 0;
 -webkit-box-shadow: inset 0px 1px 0 #242424;
 -moz-box-shadow: inset 0px 1px 0 #333;
 box-shadow: inset 0px 1px 0 #303030;
+font-family:normal 13px helvetica,arial,sans-serif;
 }
 
 .news_des {
@@ -299,6 +300,7 @@ border-bottom: 1px solid #222;
 -webkit-border-bottom-left-radius: 10px;
 -webkit-border-bottom-right-radius: 0px;
 border-radius: 0px 0px 0px 10px;
+font-family:normal 13px helvetica,arial,sans-serif;
 }
 
 .news_img {
@@ -318,6 +320,7 @@ display: inline;
 -webkit-border-bottom-left-radius: 5px;
 -webkit-border-bottom-right-radius: 5px;
 border-radius: 0px 0px 5px 5px;
+font-family:normal 13px helvetica,arial,sans-serif;
 }
 
 .read_more a:hover {
