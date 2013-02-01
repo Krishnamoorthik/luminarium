@@ -6,7 +6,7 @@ $(function(){
 
 function updateHeader(exhibit){
     $('#exhibit-title').empty().text("The Luminarium Presents: " + exhibit.title);
-    $('#exhibit-release-date').empty().text("Exhibit released: " + prettyDate(exhibit.release_date));
+    $('#exhibit-release-date').empty().text("Exhibit Released: " + prettyDate(exhibit.release_date));
     $('#exhibit-description').empty().text(exhibit.description);
 }
 
