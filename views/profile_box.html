@@ -9,17 +9,22 @@
                             <img src="{{ user.thumbnail }}" />
                         </a>
                     </li>
-                    <li>
-                        <a class="register_link2" href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
+                    <li class="t_username">
+                        <a id="user_link" href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}" title="Your Profile">
                             {{ user.name }}
                         </a>
                     </li>
+                    <!--<li>
+                        <a class="register_link2" href="http://theluminarium.net/v4/forum/index.php?showuser={{ user.id }}">
+                            {{ user.name }}
+                        </a>
+                    </li>-->
                     <li>
-                        <a class="register_link2" id="signout-link" href="http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k={{ user.k }}">
+                        <a href="http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login&do=logout&k={{ user.k }}">
                             Sign Out
                         </a>
                     </li>
-                    {% if user.is_admin %}
+                    <!--{% if user.is_admin %}
                         <ul class="ipsList_inline right" id="admin_bar">
                             <li>
                                 <a class="register_link2" href="http://theluminarium.net/v4/forum/admin">
@@ -30,13 +35,13 @@
                                 </a>
                             </li>
                         </ul>
-                    {% endif %}
+                    {% endif %}-->
                 {% else %}
                     <li class="left_img">
                         <img src="{{ user.thumbnail }}" />
                     </li>
                     <li>
-                        <a id="signin_link" class="register_link2" href="http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login">
+                        <a href="http://theluminarium.net/v4/forum/index.php?app=core&module=global&section=login">
                             Sign In
                         </a>
                     </li>
