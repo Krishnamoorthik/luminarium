@@ -101,7 +101,7 @@ padding-right: 10px;
 
 .ipsList_inline > li {
 	display: inline-block;
-	margin: 0 3px;
+	margin: 0px;
 }
 
 #box_text {
@@ -142,7 +142,7 @@ text-overflow: ellipsis;
 display: table-cell;
 width: 344px;
 min-width:344px;
-height:92px;
+height:67px;
     
 background: url('http://theluminarium.net/v4/forum/public/style_images/master/menu_box.png') repeat-y top right;
 -webkit-box-shadow: inset 0px 1px 0 rgba(255,255,255,0.2), 0px 1px 4px rgba(0,0,0,0.4);
