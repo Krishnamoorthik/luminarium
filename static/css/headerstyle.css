@@ -177,6 +177,11 @@ font-weight: bold;
 #user_navigation ul#corner_profile { 
     color: #9f9f9f; 
     margin: 0px;
+    padding: 0px;
+}
+#user_navigation ul#loggedout { 
+    color: #9f9f9f; 
+    margin: 0px;
 }
 #user_navigation a { color: #fff; }
 
