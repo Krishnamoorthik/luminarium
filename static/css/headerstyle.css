@@ -158,7 +158,6 @@ min-width:344px;
     color: #9f9f9f; 
     margin: 0;
     padding: 0;
-    width:100%;
 }
 #user_navigation a { color: #fff; }
 
@@ -328,7 +327,7 @@ display: inline;
 -webkit-border-bottom-left-radius: 5px;
 -webkit-border-bottom-right-radius: 5px;
 border-radius: 0px 0px 5px 5px;
-font: normal 12px helvetica,arial,sans-serif;
+font: normal 13px helvetica,arial,sans-serif;
 text-transform: none;
 }
 
