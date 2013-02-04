@@ -14,6 +14,11 @@ app = bottle.Bottle()
 def hello():
     return {'exhibits': LuminariumAPI().fetch_str('/exhibits')}
     
+@app.get('/privacy')
+@view('privacy')
+def privacy():
+    return {}
+    
 @app.get('/exhibit/<id:int>')
 @view('exhibit')
 def exhibit(id):
