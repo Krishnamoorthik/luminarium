@@ -115,6 +115,14 @@ div.navbar {
     min-height: 250px;
 }
 
+#exhibit-list {
+
+}
+
+#exhibit-list li {
+
+}
+
 #footer {
     min-height: 200px;
 }
@@ -192,3 +200,4 @@ div.timezone a {
     text-align: center;
     margin: 1em 0;
 }
+
