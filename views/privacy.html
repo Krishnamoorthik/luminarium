@@ -7,3 +7,11 @@
         <li>This privacy policy is subject to change without notice and was last updated on February 4, 2013. If you have any questions feel free to contact us directly at <a href="mailto:info@theluminarium.net">info@theluminarium.net</a>.</li>
     </ul>
 {% endblock %}
+
+{% block custom_js %}
+    <script type="text/javascript">
+        $(function(){
+            updateHeader({{ exhibit }});
+        });
+    </script>
+{% endblock %}

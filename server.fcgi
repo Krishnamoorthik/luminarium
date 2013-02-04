@@ -17,7 +17,7 @@ def hello():
 @app.get('/privacy')
 @view('privacy')
 def privacy():
-    return {}
+    return {'exhibit': LuminariumAPI().fetch_str('/exhibit/latest')}
     
 @app.get('/exhibit/<id:int>')
 @view('exhibit')
