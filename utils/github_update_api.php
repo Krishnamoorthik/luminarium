@@ -20,15 +20,15 @@ if (!isset($repository) || !isset($repository['name']))
 	return;
 
 // perform the git pull
-$loc = '/home/warlord/www/api';
+$loc = '/home/jkeech/public/theluminarium.net/api';
 $result = shell_exec('cd ' . $loc . ' && git pull');
 
 // log results to file to later viewing and debugging
-$filename = '/home/warlord/logs/github_pull.log';
+$filename = '/home/jkeech/public/theluminarium.net/log/github_pull.log';
 $fd = fopen($filename, 'a');
 fwrite($fd, $result . "\n");
 fclose($fd);
 
-// restart the api server
-shell_exec("pkill -9 -u 'warlord' -f app.fcgi");
+// restart the server
+shell_exec('touch ' . $loc . '/app.wsgi' );
 ?>
