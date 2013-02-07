@@ -20,7 +20,7 @@ if (!isset($repository) || !isset($repository['name']))
 	return;
 
 // perform the git pull
-$loc = '/home/jkeech/public/theluminarium.net/public/v4';
+$loc = '/home/jkeech/public/theluminarium.net/v4';
 $result = shell_exec('cd ' . $loc . ' && git pull');
 
 // log results to file to later viewing and debugging
