@@ -6,6 +6,8 @@ from api_handler import LuminariumAPI
 from custom_view import view
 import json
 
+bottle.TEMPLATE_PATH.insert(0,'/home/jkeech/public/theluminarium.net/v4/views')
+
 # setup application with plugins    
 app = bottle.Bottle()
 
