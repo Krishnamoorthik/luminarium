@@ -30,5 +30,5 @@ fwrite($fd, $result . "\n");
 fclose($fd);
 
 // restart the v4 server
-shell_exec('supervisorctl restart v4 );
+shell_exec('supervisorctl restart v4');
 ?>
