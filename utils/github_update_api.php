@@ -29,6 +29,6 @@ $fd = fopen($filename, 'a');
 fwrite($fd, $result . "\n");
 fclose($fd);
 
-// restart the server
-shell_exec('touch ' . $loc . '/app.wsgi' );
+// restart the api server
+shell_exec('supervisorctl restart api' );
 ?>
