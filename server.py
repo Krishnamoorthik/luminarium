@@ -1,4 +1,4 @@
-#!/home/warlord/www/api/env2/bin/python
+#!/usr/local/bin/python
 
 import bottle
 from bottle import get
@@ -28,11 +28,11 @@ def exhibit(id):
             'id': id}
 
 if __name__ == '__main__':
-    from bottle import static_file
+    #from bottle import static_file
         
     # route static files for localhost testing
-    @app.get('/<filepath:path>')
-    def file(filepath):
-        return static_file(filepath.replace('v4/','',1), root='')
+    #@app.get('/<filepath:path>')
+    #def file(filepath):
+    #    return static_file(filepath.replace('v4/','',1), root='')
             
-    app.run()
+    app.run(server='gunicorn', port=9002)
